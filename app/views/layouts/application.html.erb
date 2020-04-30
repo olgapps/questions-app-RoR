@@ -10,6 +10,14 @@
   </head>
 
   <body>
+
+<%=render 'home/navbar'%>
+  <div class = "container">
+    <div class="well"><%= current_user_email%></div>
     <%= yield %>
+    <%=render 'home/new_question_form'%>
+
+  
+    </div>
   </body>
 </html>

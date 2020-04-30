@@ -1,0 +1,29 @@
+<div class="modal fade" id="new-answer-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Answer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for :answer, url:'/answers', html:{class: 'form-horizontal'} do%>
+          <input type="hidden" name="answer[question_id]" value ="<%=@question.id%>"/>
+            <div class="form-group">
+                <label for="inputEmail">Email address</label>
+                <input name="answer[email]" value="<%=current_user_email%>" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label  for="inputQuestion">Answer</label>
+                <textarea name="answer[body]" class="form-control" id="inputQuestion" placeholder="ask the question" required></textarea>
+            </div>
+          
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+     <% end %>
+    </div>
+  </div>
+</div>
